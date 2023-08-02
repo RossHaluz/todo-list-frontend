@@ -1,13 +1,26 @@
 {
   "files": {
-    "main.css": "/todo-list-frontend/static/css/main.7acaea2f.css",
-    "main.js": "/todo-list-frontend/static/js/main.07d3183d.js",
+    "main.css": "/todo-list-frontend/static/css/main.3fa70b5c.css",
+    "main.js": "/todo-list-frontend/static/js/main.5216dbc8.js",
+    "static/js/657.d7d74e06.chunk.js": "/todo-list-frontend/static/js/657.d7d74e06.chunk.js",
+    "static/media/auth-desc@2x.png": "/todo-list-frontend/static/media/auth-desc@2x.32cb768db3fa51e0e051.png",
+    "static/media/auth-mb@2x.png": "/todo-list-frontend/static/media/auth-mb@2x.8b5ce7fc07b16b11e361.png",
+    "static/media/auth-desc@1x.png": "/todo-list-frontend/static/media/auth-desc@1x.7a6b72be737b8680b869.png",
+    "static/media/help2x.png": "/todo-list-frontend/static/media/help2x.7e113c606f1493767af7.png",
+    "static/media/auth-mb@1x.png": "/todo-list-frontend/static/media/auth-mb@1x.7cbbb32bc0a800ec11f4.png",
+    "static/media/project.svg": "/todo-list-frontend/static/media/project.808e6778537ebd8885537784552cc335.svg",
     "index.html": "/todo-list-frontend/index.html",
-    "main.7acaea2f.css.map": "/todo-list-frontend/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/todo-list-frontend/static/js/main.07d3183d.js.map"
+    "static/media/icon.svg": "/todo-list-frontend/static/media/icon.1bcf5823c9bcbae36fa4a43c9cdee7a6.svg",
+    "static/media/pencil.svg": "/todo-list-frontend/static/media/pencil.d266f29833c6d80bfd808dd708781037.svg",
+    "static/media/help-icon.svg": "/todo-list-frontend/static/media/help-icon.cc4ae0849815e0fbe25f3715a669039e.svg",
+    "static/media/delate.svg": "/todo-list-frontend/static/media/delate.4776b797dcbcc3d4a5f2c87f2b4b4600.svg",
+    "static/media/logout.svg": "/todo-list-frontend/static/media/logout.ceaa5f871627b96d02eeec0d2020cf3b.svg",
+    "main.3fa70b5c.css.map": "/todo-list-frontend/static/css/main.3fa70b5c.css.map",
+    "main.5216dbc8.js.map": "/todo-list-frontend/static/js/main.5216dbc8.js.map",
+    "657.d7d74e06.chunk.js.map": "/todo-list-frontend/static/js/657.d7d74e06.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.3fa70b5c.css",
+    "static/js/main.5216dbc8.js"
   ]
 }
