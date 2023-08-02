@@ -1,6 +1,6 @@
 
 
-const PrivateRoute = ({component = Component, redirectTo = '/'}) => {
+const PrivateRoute = () => {
   return 
 }
 
