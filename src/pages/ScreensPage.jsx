@@ -1,4 +1,3 @@
-import AppBar from "components/AppBar"
 import Screens from "components/Screens"
 import Sidebar from "components/Sidebar"
 
