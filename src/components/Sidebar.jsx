@@ -166,14 +166,14 @@ const Sidebar = () => {
 <div className='flex flex-col gap-[14px] mb-[40px]'>
 <h3 className='text-white'>Background</h3>
 <ul className='flex items-center gap-[4px] flex-wrap'>
-  {bgc?.slice(1).map(({id, alt, URL}) => {{
+  {bgc?.slice(1).map(({id, alt, URL}) => {
   return <li key={id}>
     <label className='flex'>
       <Field type="radio" name="backgraund" onClick={e => setBackgraund(URL.icon)} value={URL.icon} className="appearance-none"/>
     <img src={URL.icon} alt={alt} />
     </label>
     </li>
-  }})}
+  })}
 </ul>
 </div>
 </div>
