@@ -5,11 +5,7 @@ import Sidebar from './Sidebar'
 
 const Loyaut = () => {
   return <div>
-    <Sidebar/>
-    <div className='container m-auto'>
-      <AppBar/>
-    </div>
-    <div className='container m-auto w-[100vw] bg-[#1F1F1F] px-[20px] py-[14px]'>
+    <div className='container m-auto w-[100vw] bg-[#1F1F1F] '>
       <Suspense fallback={"Loading..."}>
         <Outlet/>
      </Suspense>

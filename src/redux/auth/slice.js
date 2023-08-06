@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { registerUser, loginUser } from './operation';
+import { registerUser, loginUser, logoutUser, currentUser } from './operation';
 
 const extraActions = [registerUser, loginUser];
 const getActions = type => extraActions.map(action => action[type]);
@@ -27,6 +27,37 @@ const authSlice = createSlice({
         state.user = action.payload;
         state.token = action.payload.token;
       })
+      .addCase(logoutUser.pending, (state, __) => {
+        state.loading = true;
+      })
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        state.user = null;
+        state.loading = false;
+        state.token = null;
+        state.error = null;
+        state.isLogin = false;
+        state.isRefreshing = false;
+      })
+      .addCase(logoutUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(currentUser.pending, state => {
+        state.loading = true;
+      })
+      .addCase(currentUser.fulfilled, (state, action) => {
+        state.isLogin = true;
+        state.loading = false;
+        state.user = action.payload;
+      })
+      .addCase(currentUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLogin = false;
+        state.isRefreshing = false;
+        state.token = null;
+        state.user = null;
+        state.loading = false;
+      })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.loading = true;
         state.user = null;
@@ -44,6 +75,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addMatcher(isAnyOf(...getActions('fulfilled')), state => {
+        state.isLogin = true;
         state.error = null;
         state.loading = false;
       })

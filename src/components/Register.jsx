@@ -33,7 +33,6 @@ const toggle = () => {
   };
 
   const onSubmit = (value, { resetForm }) => {
-    console.log(value);
     dispatch(registerUser(value))
     resetForm();
   };
@@ -69,7 +68,7 @@ const toggle = () => {
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
-          validateSchema={validateSchema}
+          validationSchema={validateSchema}
         >
           <Form className="flex flex-col gap-3">
             <div className='flex flex-col gap-[14px]'>
