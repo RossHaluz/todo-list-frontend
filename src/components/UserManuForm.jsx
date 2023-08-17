@@ -1,7 +1,6 @@
-import { ErrorMessage, Field, Form, Formik } from "formik"
+import {  Field, Form, Formik } from "formik"
 import { useDispatch, useSelector } from "react-redux"
 import { selectUser } from "redux/auth/selectors";
-import * as Yup from 'yup';
 import icons from 'icons.svg'
 import { BiPlus } from "react-icons/bi";
 import { useRef, useState } from "react";
