@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { registerUser, loginUser, logoutUser, currentUser } from './operation';
+import { registerUser, loginUser, logoutUser, currentUser, updateUser } from './operation';
 
 const extraActions = [registerUser, loginUser];
 const getActions = type => extraActions.map(action => action[type]);
@@ -8,6 +8,7 @@ const initialState = {
   user: null,
   loading: false,
   token: null,
+  theme: 'dark',
   error: null,
   isLogin: false,
   isRefreshing: false,
@@ -16,7 +17,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    changeTheme(state, action) {
+      state.theme = action.payload;
+    }
+  },
   extraReducers: builder => {
     return builder
       .addCase(registerUser.fulfilled, (state, action) => {
@@ -58,6 +63,14 @@ const authSlice = createSlice({
         state.user = null;
         state.loading = false;
       })
+      .addCase(updateUser.pending, (state, __) => {
+        state.loading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.loading = false;
+        state.user = action.payload;
+      })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.loading = true;
         state.user = null;
@@ -81,6 +94,8 @@ const authSlice = createSlice({
       })
   },
 });
+
+export const {changeTheme} = authSlice.actions;
 
 export const authReducer = authSlice.reducer;
 

@@ -1,14 +1,20 @@
 import { useSelector } from 'react-redux';
-import avatar from '../img/avatar/user.png';
 import { selectUser } from 'redux/auth/selectors';
+import Modal from './Modal';
+import icons from 'icons.svg';
+import UserManuForm from './UserManuForm';
 
 const UserMenu = () => {
-const userName = useSelector(selectUser)
+const {name, avatar} = useSelector(selectUser);
+const {theme} = useSelector(state => state.auth)
+const avatarUser = avatar ? avatar : `${icons}#icon-user`
 
-  return <button type='button' className='flex items-center gap-[8px] text-white'>
-    <h3>{userName?.name}</h3>
-    <img src={avatar} alt="Avatar" width='32px' height='32px' className='w-[32px] h-[32px]'/>
-  </button>
+  return <Modal styles={'flex items-center gap-[8px] text-white'} data={<><h3 className={`text-[#161616] ${theme === 'dark' && 'text-[#fff]'}`}>{name}</h3>
+    {!avatar ? <svg width='32' height='32'>
+        <use href={avatarUser}></use>
+      </svg> : <img src={avatarUser} alt='User avatar' width="32" height="32" className='w-[32px] h-[32px] object-cover rounded-[8px]'/>}</>} textModal={'Edit  profile'}>
+        <UserManuForm/>
+  </Modal>
 }
 
 export default UserMenu

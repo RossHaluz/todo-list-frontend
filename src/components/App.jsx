@@ -8,10 +8,10 @@ import RestrictedRoute from "./RestrictedRoute";
 import PrivateRoute from "./PrivateRoute";
 import { useDispatch } from "react-redux";
 import { currentUser } from "redux/auth/operation";
+import ScreensPage from "pages/ScreensPage";
 
-const ScreensPage = lazy(() => import('../pages/ScreensPage'))
+const HomePage = lazy(() => import('../pages/HomePage'))
  
-
 export const App = () => {
   const dispatch = useDispatch()
 
@@ -19,15 +19,13 @@ export const App = () => {
     dispatch(currentUser())
   }, [dispatch])
 
-  return <>
-  <Routes>
+  return  <Routes>
 <Route path="/" element={<Loyaut/>}>
-<Route index element={<PrivateRoute component={<ScreensPage/>} redirectTo="/auth"/>}/>
-</Route>
-
-    <Route path="/auth" element={<RestrictedRoute component={<AuthPage/>} redirectTo="/"/>}/>
-    <Route path="/login" element={<RestrictedRoute component={<LoginPage/>} redirectTo="/"/>}/>
-    <Route path="/register" element={<RestrictedRoute component={<RegisterPage/>} redirectTo="/"/>}/>
+<Route index element={<PrivateRoute component={<HomePage/>} redirectTo="/auth"/>}/>
+    <Route path=":boardName" element={<PrivateRoute component={<ScreensPage/>} redirectTo="/auth"/>}/>
+    <Route path="auth" element={<RestrictedRoute component={<AuthPage/>} redirectTo="/"/>}/>
+    <Route path="login" element={<RestrictedRoute component={<LoginPage/>} redirectTo="/"/>}/>
+    <Route path="register" element={<RestrictedRoute component={<RegisterPage/>} redirectTo="/"/>}/>
+    </Route>
   </Routes>
-  </>
 };

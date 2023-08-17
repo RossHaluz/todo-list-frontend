@@ -54,3 +54,12 @@ export const currentUser = createAsyncThunk('api/currentUser', async (__, {rejec
         return rejectWithValue(error.message)
     }
 })
+
+export const updateUser = createAsyncThunk('api/updateUser', async(params, {rejectWithValue}) => {
+    try {
+        const {data} = await axios.put('/api/user/update', params); 
+        return data;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})
