@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/todo-list-frontend/static/css/main.4739ad92.css",
-    "main.js": "/todo-list-frontend/static/js/main.283bb26e.js",
-    "static/js/507.7b8d932c.chunk.js": "/todo-list-frontend/static/js/507.7b8d932c.chunk.js",
+    "main.css": "/todo-list-frontend/static/css/main.ab625003.css",
+    "main.js": "/todo-list-frontend/static/js/main.eb0d100d.js",
+    "static/js/507.281f7b91.chunk.js": "/todo-list-frontend/static/js/507.281f7b91.chunk.js",
     "static/media/auth-desc@2x.png": "/todo-list-frontend/static/media/auth-desc@2x.32cb768db3fa51e0e051.png",
     "static/media/auth-mb@2x.png": "/todo-list-frontend/static/media/auth-mb@2x.8b5ce7fc07b16b11e361.png",
     "static/media/auth-desc@1x.png": "/todo-list-frontend/static/media/auth-desc@1x.7a6b72be737b8680b869.png",
     "static/media/help2x.png": "/todo-list-frontend/static/media/help2x.7e113c606f1493767af7.png",
     "static/media/auth-mb@1x.png": "/todo-list-frontend/static/media/auth-mb@1x.7cbbb32bc0a800ec11f4.png",
-    "static/media/icons.svg": "/todo-list-frontend/static/media/icons.2e346a82f5d2313488b66d8e84cc964c.svg",
+    "static/media/icons.svg": "/todo-list-frontend/static/media/icons.1bd9c830ad331f109331dc3c2ff53bb3.svg",
     "index.html": "/todo-list-frontend/index.html",
     "static/media/icon.svg": "/todo-list-frontend/static/media/icon.dcd4dbbf6c495b4a137bf36664226cd3.svg",
     "static/media/pencil.svg": "/todo-list-frontend/static/media/pencil.fcc4cb6c231632db8b6d7a2194871e40.svg",
     "static/media/help-icon.svg": "/todo-list-frontend/static/media/help-icon.475cf1b180f8d6146d41bb9cdc3c61b7.svg",
     "static/media/delate.svg": "/todo-list-frontend/static/media/delate.50e4e67d5b41d0d42ddd7862efa14db9.svg",
     "static/media/logout.svg": "/todo-list-frontend/static/media/logout.b7c487b49848888de503993c57404621.svg",
-    "main.4739ad92.css.map": "/todo-list-frontend/static/css/main.4739ad92.css.map",
-    "main.283bb26e.js.map": "/todo-list-frontend/static/js/main.283bb26e.js.map",
-    "507.7b8d932c.chunk.js.map": "/todo-list-frontend/static/js/507.7b8d932c.chunk.js.map"
+    "main.ab625003.css.map": "/todo-list-frontend/static/css/main.ab625003.css.map",
+    "main.eb0d100d.js.map": "/todo-list-frontend/static/js/main.eb0d100d.js.map",
+    "507.281f7b91.chunk.js.map": "/todo-list-frontend/static/js/507.281f7b91.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4739ad92.css",
-    "static/js/main.283bb26e.js"
+    "static/css/main.ab625003.css",
+    "static/js/main.eb0d100d.js"
   ]
 }
