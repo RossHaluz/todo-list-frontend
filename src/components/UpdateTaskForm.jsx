@@ -1,10 +1,9 @@
-import { Field, Form, Formik, ErrorMessage } from "formik"
-import {BiPlus} from 'react-icons/bi';
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import * as Yup from 'yup';
-import "react-datepicker/dist/react-datepicker.css";
 import Calendar from "./Calendar";
-import { createTask } from "redux/tasks/operations";
+import { BiPlus } from "react-icons/bi";
+import * as Yup from 'yup';
+import { updateTask } from "redux/tasks/operations";
 
 const validateSchema = Yup.object({
     title: Yup.string('Type a title').required('Title is required'),
@@ -13,24 +12,25 @@ const validateSchema = Yup.object({
     deadline: Yup.date('Type a deadline').required('Deadline is required'),
   })
 
-const AddTaskForm = ({id}) => {
-    const dispatch = useDispatch();
-    const {theme} = useSelector(state => state.auth);
 
-      const initialValues = {
-        title: '',
-        desc: '',
-        priority: '',
-        deadline: new Date()
-      }
-    
-      const onSubmit = (value, {resetForm}) => {
-        dispatch(createTask({value, id}))
-        resetForm();
-      }
+const UpdateTaskForm = ({title, desc, priority, deadline, id}) => {
+const {theme} = useSelector(state => state.auth);
+const dispatch = useDispatch()
 
-  return <>
-  <Formik
+
+const initialValues = {
+    title: title,
+    desc: desc,
+    priority: priority,
+    deadline: new Date(deadline)
+  }
+
+  const onSubmit = (value, {resetForm}) => {
+    dispatch(updateTask({...value, id}))
+    resetForm();
+  }
+
+  return   <Formik
   initialValues={initialValues}
   onSubmit={onSubmit}
   validationSchema={validateSchema}
@@ -81,7 +81,6 @@ const AddTaskForm = ({id}) => {
 </Form>
    )}
   </Formik>
-  </>
 }
 
-export default AddTaskForm
+export default UpdateTaskForm

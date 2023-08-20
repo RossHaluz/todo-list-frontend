@@ -77,7 +77,7 @@ const Sidebar = () => {
       <Link to='/' className="flex items-center gap-[8px] py-[18px] px-[14px] mb-[16px]">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M32 0H8C3.58172 0 0 3.58172 0 8V32C0 36.4183 3.58172 40 8 40H32C36.4183 40 40 36.4183 40 32V8C40 3.58172 36.4183 0 32 0Z" className={`fill-[#1F1F1F] ${theme === 'violet' && "fill-[#ECEDFD]"}`} />
-<path d="M16.6643 28.7836C16.9698 27.1941 17.2301 25.5209 17.5979 23.8478C17.7789 22.9722 17.5583 22.5985 16.5794 22.6654C15.6005 22.7324 14.5085 22.6989 13.4674 22.6654C12.4263 22.632 12.2396 22.1077 12.8394 21.3604C15.7929 17.7129 18.7804 14.1101 21.7566 10.5184C22.0905 10.1113 22.4752 9.82126 23.0241 10.128C23.5729 10.4347 23.4597 10.814 23.3692 11.2713C23.041 12.9445 22.7694 14.6176 22.4073 16.2573C22.2206 17.105 22.4639 17.4062 23.3466 17.3727C24.2324 17.3281 25.12 17.3281 26.0059 17.3727C26.5095 17.3727 27.1715 17.1106 27.4318 17.7966C27.6921 18.4826 27.1432 18.7726 26.866 19.1797C25.7343 20.574 24.5876 21.9664 23.4258 23.357C21.7246 25.3871 20.0365 27.4097 18.3617 29.4249C18.0336 29.8209 17.6658 30.1388 17.1056 29.938C16.5455 29.7373 16.6643 29.2632 16.6643 28.7836Z" className={`fill-[#fff] ${theme === 'violet' && 'fill-[#5255BC]'}`}/>
+<path d="M16.6643 28.7836C16.9698 27.1941 17.2301 25.5209 17.5979 23.8478C17.7789 22.9722 17.5583 22.5985 16.5794 22.6654C15.6005 22.7324 14.5085 22.6989 13.4674 22.6654C12.4263 22.632 12.2396 22.1077 12.8394 21.3604C15.7929 17.7129 18.7804 14.1101 21.7566 10.5184C22.0905 10.1113 22.4752 9.82126 23.0241 10.128C23.5729 10.4347 23.4597 10.814 23.3692 11.2713C23.041 12.9445 22.7694 14.6176 22.4073 16.2573C22.2206 17.105 22.4639 17.4062 23.3466 17.3727C24.2324 17.3281 25.12 17.3281 26.0059 17.3727C26.5095 17.3727 27.1715 17.1106 27.4318 17.7966C27.6921 18.4826 27.1432 18.7726 26.866 19.1797C25.7343 20.574 24.5876 21.9664 23.4258 23.357C21.7246 25.3871 20.0365 27.4097 18.3617 29.4249C18.0336 29.8209 17.6658 30.1388 17.1056 29.938C16.5455 29.7373 16.6643 29.2632 16.6643 28.7836Z" className={`${theme === 'violet' ? 'fill-[#5255BC]' : 'fill-[#fff]'}`}/>
 </svg>
 
         <h1 className={`text-[16px] font-semibold tracking-[-0.64px] ${theme === 'light' ?'text-[#161616]' : 'text-[#fff]'}`}>
@@ -96,7 +96,7 @@ const Sidebar = () => {
 
           <Modal data={<div className={`w-[40px] h-[36px] flex justify-center items-center ${theme === 'violet' ? 'bg-[#B8BCFD]' : 'bg-[#BEDBB0]'} rounded-[6px]`}>
             <HiOutlinePlusSm className={`w-[24px] h-[24px] ${theme === 'violet' ? 'text-[#fff]' : 'text-[#121212]'}`} />
-          </div>}>
+          </div>} textModal={'New board'}>
             <AddBoardForm/>
 </Modal>
         </div>
@@ -118,7 +118,7 @@ const Sidebar = () => {
           </div>
         </NavLink>
        {item.title === boardName && <div className="flex gap-[8px] items-center absolute top-6 right-4">
-        <Modal styles={'flex'} data={ <IconEddit stroke={`${theme === 'light' ? '#16161680' : '#FFFFFF80'}`}/>}>
+        <Modal styles={'flex'} data={ <IconEddit stroke={`${theme === 'light' ? '#16161680' : '#FFFFFF80'}`}/>} textModal={'Eddit board'}>
         <UpdateBoardForm title={item.title} background={item.background} icon={item.icon} id={item._id}/>
       </Modal>
       <button type='button' onClick={() => dispatch(delateBoard(item._id))}>
@@ -154,8 +154,7 @@ const Sidebar = () => {
 <Modal data={ <div className="flex items-center gap-[8px] font-medium text-[12px] tracking-[-0.24px]">
           <IconHelp className="w-[24px] h-[24px]" stroke={`${theme === 'light' ? '#161616' : '#fff'}`}/>
           <h3 className={`${theme === 'light' ? 'text-[#161616]' : 'text-[#fff]'} `}>Need help?</h3>
-        </div>}>
-          <h2 className={`mb-[24px] text-[18px] font-medium tracking-[-0.36px]`}>Need help</h2>
+        </div>} textModal={'Need help?'}>
          <NeedHelpForm/>
 </Modal>
       </div>

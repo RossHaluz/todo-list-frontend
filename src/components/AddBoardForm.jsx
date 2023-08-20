@@ -1,6 +1,6 @@
 import { Field, Form, Formik, ErrorMessage } from "formik"
 import {BiPlus} from 'react-icons/bi';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createNewBoard } from "redux/boards/operations";
 import { bgc } from 'source/bgc';
 import * as Yup from 'yup';
@@ -17,6 +17,7 @@ const AddBoardForm = () => {
     const dispatch = useDispatch()
     const [icon, setIcon] = useState(icons + '#board-icon1');
     const [background, setBackground] = useState('');
+    const {theme} = useSelector(state => state.auth);
 
     const BOARD_ICONS = [
         'board-icon1',
@@ -41,9 +42,6 @@ const AddBoardForm = () => {
       }
 
   return <>
-  <div className='flex justify-between items-center mb-[24px]'>
-  <h2 className='text-white font-medium text-[18px] tracking-[-0.36px]'>New board</h2>
-  </div>
   <Formik
   initialValues={initialValues}
   onSubmit={onSubmit}
@@ -51,15 +49,15 @@ const AddBoardForm = () => {
   >
 <Form>
   <div className='flex flex-col gap-[24px]'>
-  <Field type="text" name="title" placeholder="Title" className="bg-[#1F1F1F] border border-solid border-[#BEDBB0] rounded-[8px] py-[14px] px-[18px] text-white tracking-[-0.28px] outline-none"/>
+  <Field type="text" name="title" placeholder="Title" className={`${theme === 'dark' ? 'bg-[#1F1F1F]' : 'bg-transparent'} border border-solid ${theme === 'violet' ? 'border-[#5255BC]' : ' border-[#BEDBB0]'} rounded-[8px] py-[14px] px-[18px] shadow-[0px_4px_16px_0px_#16161614] ${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'} tracking-[-0.28px] opacity-[0.4] outline-none`}/>
   <ErrorMessage component='p' name='title' className="text-red-500"/>
 <div className='flex flex-col gap-[14px]'>
-<h3 className='text-white'>Icons</h3>
+<h3 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'}`}>Icons</h3>
 <div className='flex gap-[8px] items-center'>
   {BOARD_ICONS.map(item => {
   return  <label key={item} className='flex cursor-pointer'>
       <Field type="radio" name='icon' onClick={e => setIcon(icons + `#${item}`)} className="appearance-none checked:opacity-[1]" value={item}/>
-      <svg width='18' height='18' className="opacity-[0.4] hover:opacity-[1] checked:opacity-[1] focus:opacity-[1]">
+      <svg width='18' height='18' className="opacity-[0.4] hover:opacity-[1] checked:opacity-[1] focus:opacity-[1]" stroke={`${theme === 'dark' ? '#FFFFFF80' : '#16161680'}`}>
         <use href={`${icons}#${item}`}></use>
       </svg>
     </label>
@@ -68,7 +66,7 @@ const AddBoardForm = () => {
 </div>
 
 <div className='flex flex-col gap-[14px] mb-[40px]'>
-<h3 className='text-white'>Background</h3>
+<h3 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'}`}>Background</h3>
 <ul className='flex items-center gap-[4px] flex-wrap'>
   {bgc?.slice(1).map(({id, alt, URL}) => {
   return <li key={id}>
@@ -81,9 +79,9 @@ const AddBoardForm = () => {
 </ul>
 </div>
 </div>
-<button type='submit' className='w-[287px] flex justify-center items-center gap-[8px] py-[10px] text-[#161616] font-medium tracking-[-0.28px] bg-[#BEDBB0] rounded-[8px]'>
-  <div className='bg-[#161616] p-[7px] rounded-[8px]'>
-  <BiPlus className='text-white w-[14px] h-[14px]'/>
+<button type='submit' className={`w-full flex justify-center items-center gap-[8px] py-[10px] font-medium tracking-[-0.28px] ${theme === 'violet' ? 'bg-[#5255BC] text-[#fff]' : 'bg-[#BEDBB0] text-[#161616]'} rounded-[8px]`}>
+  <div className={`${theme === 'violet' ? 'bg-[#fff]' : 'bg-[#161616]'} p-[7px] rounded-[8px]`}>
+  <BiPlus className={`${theme === 'violet' ? 'text-[#161616]' : 'text-[#fff]'} w-[14px] h-[14px]`}/>
   </div>
   Create
   </button>

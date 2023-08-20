@@ -3,6 +3,8 @@ import AddColumn from './AddColumn';
 import Columns from './Columns';
 import { useSelector } from 'react-redux';
 import { selectColumns } from 'redux/columns/selectors';
+import Modal from './Modal';
+import Filter from './Filter';
 
 const Screens = ({board}) => {
   const {theme} = useSelector(state => state.auth);
@@ -13,7 +15,9 @@ const Screens = ({board}) => {
     <div className='flex flex-col'>
     <div className='flex justify-between'>
       {board && <h1 className={`text-[18px] font-medium tracking-[-0.36px] ${theme === 'dark' ? "text-[#fff]" : "text-[#161616]"}`}>{board.title}</h1> }
-    <button type='button' className={`text-[#161616]/[.80] ${theme === 'dark' && 'text-[#fff]'} flex items-center ml-auto gap-[8px]`}><FiFilter/> Filters</button>
+      <Modal styles={`text-[#161616]/[.80] ${theme === 'dark' && 'text-[#fff]'} flex items-center ml-auto gap-[8px]`} data={<><FiFilter/> Filters</>} textModal={'Filter'}>
+        <Filter/>
+      </Modal>
     </div>
     <div className='flex gap-[34px] items-center w-full h-[100%] overflow-x-auto'>
       <div className={`flex ${columns?.length > 0 ? 'gap-[34px]' : 'gap-[0px]'}`}>

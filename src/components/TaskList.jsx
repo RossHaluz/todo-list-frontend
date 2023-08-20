@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectTasks } from "redux/tasks/selectors";
 
 const TaskList = ({id}) => {
-  const tasks = useSelector(selectTasks)
+  const tasks = useSelector(selectTasks);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const TaskList = ({id}) => {
   }, [dispatch])
 
 
-  return <ul className="flex flex-col gap-[8px] h-[60vh] overflow-y-auto">
+  return <ul className="flex flex-col gap-[8px] h-[57vh] overflow-y-auto">
     {!!tasks && tasks?.filter(item => item.column === id).map(item => <TaskListItem key={item._id} item={item}/>)}
   </ul>
 }

@@ -21,3 +21,31 @@ export const getTasks = createAsyncThunk('api/getTasks', async (__, {rejectWithV
         return rejectWithValue(error.message)
     }
 })
+
+export const updateTask = createAsyncThunk('api/updateTask', async (params, {rejectWithValue}) => {
+    const {id: taskId} = params;
+    try {
+        const {data} = await axios.put(`/api/task/update-task/${taskId}`, params);
+        return data;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})
+
+export const deleteTask = createAsyncThunk('api/deleteTask', async (taskId, {rejectWithValue}) => {
+    try {
+        const {data} = await axios.delete(`/api/task/delete-task/${taskId}`);
+        return data;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})
+
+export const filterTasks = createAsyncThunk('api/filterTasks', async(filterName, {rejectWithValue}) => {
+    try {
+        const {data} = await axios.get(`/api/task/filter-tasks/${filterName}`);
+        return data;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})
