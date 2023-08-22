@@ -12,7 +12,7 @@ const columnSlice = createSlice({
     reducers:{
         dragAndDropTaks(state, action) {
             console.log(action.payload);
-            state.columns = action.payload
+            state.columns = action.payload.updatedColumns;
         }
     },
     extraReducers:{

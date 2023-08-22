@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createTask, getTasks, updateTask, deleteTask, filterTasks, dragTasks } from "./operations";
+import { dragAndDropTaks } from "redux/columns/slice";
 
 const initialState = {
     loading: false,
@@ -13,6 +14,11 @@ const taskSlice = createSlice({
     initialState: initialState,
     reducers: {},
     extraReducers: {
+        [dragAndDropTaks](state, action){
+            const {columnId, taskId} = action.payload;
+            const findIndex = state.tasks.findIndex(item => item._id === taskId);
+            state.tasks[findIndex].column =  columnId;
+        },
         [createTask.pending](state, action){
             state.loading = true
         },
@@ -53,7 +59,6 @@ const taskSlice = createSlice({
             state.loading = true;
         },
         [dragTasks.fulfilled](state, action){
-            console.log(action.payload);
             state.loading = false;
         }
     }

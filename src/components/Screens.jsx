@@ -40,9 +40,12 @@ const Screens = ({board}) => {
     // Remove the item from the source column
     const [draggedItem] = sourceColumn.splice(source.index, 1);
 
-console.log(draggedItem);
     // Insert the item into the destination column
-    destinationColumn.splice(destination.index, 0, draggedItem);
+    if(source.droppableId === destination.draggedItem){
+      sourceColumn.splice(destination.index, 0, draggedItem);
+    }else{
+      destinationColumn.splice(destination.index, 0, draggedItem);
+    }
   
     // Update the columns' tasks
 
@@ -60,7 +63,12 @@ console.log(draggedItem);
 
   
     // Dispatch the updated columns
-    dispatch(dragAndDropTaks(updatedColumns));
+    dispatch(dragAndDropTaks({
+      updatedColumns,
+      columnId: destination.droppableId,
+      taskId: draggedItem,
+    }));
+    
     dispatch(dragTasks({
       taskId: draggedItem,
       columnId: destination.droppableId,
