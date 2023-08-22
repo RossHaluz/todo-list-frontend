@@ -28,8 +28,7 @@ const deleteColunm = (columnId) => {
       </button>
     </div>
     </div>
-
- <TaskList id={id}/>
+<TaskList id={id}/>
     <AddTask id={id}/>
   </li>
 }

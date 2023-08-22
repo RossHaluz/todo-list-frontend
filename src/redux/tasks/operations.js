@@ -49,3 +49,14 @@ export const filterTasks = createAsyncThunk('api/filterTasks', async(filterName,
         return rejectWithValue(error.message)
     }
 })
+
+export const dragTasks = createAsyncThunk('api/dragTasks', async(params, {rejectWithValue}) => {
+    const {taskId, columnId, indexFrom, indexTo} = params;
+    console.log(params);
+    try {
+        const {data} = await axios.patch(`/api/task/drag-task/${taskId}`, {columnId, indexFrom, indexTo});
+        return data;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})

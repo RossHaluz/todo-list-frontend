@@ -47,6 +47,7 @@ const AddBoardForm = () => {
   onSubmit={onSubmit}
   validationSchema={validateSchema}
   >
+    {({values}) => (
 <Form>
   <div className='flex flex-col gap-[24px]'>
   <Field type="text" name="title" placeholder="Title" className={`${theme === 'dark' ? 'bg-[#1F1F1F]' : 'bg-transparent'} border border-solid ${theme === 'violet' ? 'border-[#5255BC]' : ' border-[#BEDBB0]'} rounded-[8px] py-[14px] px-[18px] shadow-[0px_4px_16px_0px_#16161614] ${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'} tracking-[-0.28px] opacity-[0.4] outline-none`}/>
@@ -55,9 +56,10 @@ const AddBoardForm = () => {
 <h3 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'}`}>Icons</h3>
 <div className='flex gap-[8px] items-center'>
   {BOARD_ICONS.map(item => {
+    console.log(values.icon === item);
   return  <label key={item} className='flex cursor-pointer'>
-      <Field type="radio" name='icon' onClick={e => setIcon(icons + `#${item}`)} className="appearance-none checked:opacity-[1]" value={item}/>
-      <svg width='18' height='18' className="opacity-[0.4] hover:opacity-[1] checked:opacity-[1] focus:opacity-[1]" stroke={`${theme === 'dark' ? '#FFFFFF80' : '#16161680'}`}>
+      <Field type="radio" name='icon' onClick={e => setIcon(icons + `#${item}`)} className="appearance-none" value={item}/>
+      <svg width='18' height='18' className={`hover:opacity-[1] ${values.icon === item ? 'opacity-[1]' : 'opacity-[0.4]'}`}  stroke={`${theme === 'dark' ? '#FFFFFF80' : '#16161680'}`}>
         <use href={`${icons}#${item}`}></use>
       </svg>
     </label>
@@ -69,10 +71,10 @@ const AddBoardForm = () => {
 <h3 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'}`}>Background</h3>
 <ul className='flex items-center gap-[4px] flex-wrap'>
   {bgc?.slice(1).map(({id, alt, URL}) => {
-  return <li key={id}>
-    <label className='flex'>
+  return <li key={id} className={`border-2 ${values.background === URL.icon ? `${theme === 'dark' && 'border-[#fff] '} rounded-[8px]` : 'border-none'} ${theme === 'light' && 'border-[#BEDBB0]'} ${theme === 'violet' && 'border-[#5255BC]'}`}>
+    <label className='flex cursor-pointer'>
       <Field type="radio" name="background" onClick={e => setBackground(URL.icon)} value={URL.icon} className="appearance-none"/>
-    <img src={URL.icon} alt={alt} />
+    <img src={URL.icon} alt={alt} width="28" height="28" className="w-[28px] h-[28px]"/>
     </label>
     </li>
   })}
@@ -86,6 +88,7 @@ const AddBoardForm = () => {
   Create
   </button>
 </Form>
+)}
   </Formik>
   </>
 }

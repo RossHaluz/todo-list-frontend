@@ -5,11 +5,70 @@ import { useSelector } from 'react-redux';
 import { selectColumns } from 'redux/columns/selectors';
 import Modal from './Modal';
 import Filter from './Filter';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { dragTasks } from 'redux/tasks/operations';
+import { useDispatch } from 'react-redux';
+import { dragAndDropTaks } from 'redux/columns/slice';
 
 const Screens = ({board}) => {
   const {theme} = useSelector(state => state.auth);
   const columns = useSelector(selectColumns);
+  const dispatch = useDispatch();
 
+  const onDragEnd = result => {
+    const { destination, source } = result;
+  
+    if (!destination) {
+      return; // Item was dropped outside a droppable area
+    }
+  
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return; // Item was dropped in the same position
+    }
+  
+    const sourceColumnIndex = columns.findIndex(item => item._id === source.droppableId);
+    const destinationColumnIndex = columns.findIndex(item => item._id === destination.droppableId);
+  
+    // Copy the source and destination columns' tasks
+    const updatedColumns = [...columns];
+    const sourceColumn = [...updatedColumns[sourceColumnIndex].tasks];
+    const destinationColumn = [...updatedColumns[destinationColumnIndex].tasks];
+
+    // Remove the item from the source column
+    const [draggedItem] = sourceColumn.splice(source.index, 1);
+
+console.log(draggedItem);
+    // Insert the item into the destination column
+    destinationColumn.splice(destination.index, 0, draggedItem);
+  
+    // Update the columns' tasks
+
+      updatedColumns[sourceColumnIndex] = {
+        ...updatedColumns[sourceColumnIndex],
+        tasks: sourceColumn,
+      };
+  
+      if(destination.droppableId !== source.droppableId){
+      updatedColumns[destinationColumnIndex] = {
+        ...updatedColumns[destinationColumnIndex],
+        tasks: destinationColumn,
+      };
+    }
+
+  
+    // Dispatch the updated columns
+    dispatch(dragAndDropTaks(updatedColumns));
+    dispatch(dragTasks({
+      taskId: draggedItem,
+      columnId: destination.droppableId,
+      indexFrom: source.index,
+      indexTo: destination.index
+    }))
+  };
+  
   return  <div className={`lg:flex flex-col w-full h-screen lg:w-[calc(100vw-260px)] lg:h-[calc(100vh-60px)] fixed top-[60px] right-0 ${theme === 'light' && 'bg-[#F6F6F7]'} ${theme === 'dark' && 'bg-[#1F1F1F]'} ${theme === 'violet' && 'bg-[#ECEDFD]'}`}>
   <div className='px-[20px] md:px-[32px] lg:px-[24px] py-[14px] md:py-[26px] lg:py-[24px]'>
     <div className='flex flex-col'>
@@ -21,7 +80,9 @@ const Screens = ({board}) => {
     </div>
     <div className='flex gap-[34px] items-center w-full h-[100%] overflow-x-auto'>
       <div className={`flex ${columns?.length > 0 ? 'gap-[34px]' : 'gap-[0px]'}`}>
+      <DragDropContext onDragEnd={onDragEnd}>
       <Columns/>
+      </DragDropContext>
       {board && <AddColumn/>}
       </div>
     </div>

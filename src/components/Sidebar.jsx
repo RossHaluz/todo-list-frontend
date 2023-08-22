@@ -51,6 +51,7 @@ const Sidebar = () => {
     color: "#FFF",
     borderRight: '4px solid #BEDBB0',
     borderRadius: '4px 0px 0px 4px',
+
   }
 
 
@@ -111,7 +112,7 @@ const Sidebar = () => {
         return <li className='w-full flex justify-between items-center relative' key={item._id}>
         <NavLink to={`/${item.title}`} className="py-[22px] px-[14px] w-full" style={({isActive}) => isActive ? activeBoard : notActiveBoard}>
           <div className="flex gap-[8px] items-center">
-           <svg className='w-[18px] h-[18px]' fill={colorActiveBoard()}>
+           <svg className='w-[18px] h-[18px]' stroke={colorActiveBoard()}  >
             <use href={icons + `#${item.icon}`}></use>
            </svg>
             <h3 className={`font-medium ${theme === 'light' ? 'text-[#161616]' : 'text-[#fff]'}`}>{item.title}</h3>

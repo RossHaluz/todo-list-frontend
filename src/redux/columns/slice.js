@@ -9,7 +9,12 @@ const initialState = {
 const columnSlice = createSlice({
     name: 'column',
     initialState,
-    reducers:{},
+    reducers:{
+        dragAndDropTaks(state, action) {
+            console.log(action.payload);
+            state.columns = action.payload
+        }
+    },
     extraReducers:{
         [createColumn.pending](state, action){
             state.loading = true;
@@ -42,5 +47,7 @@ const columnSlice = createSlice({
         }
     }
 })
+
+export const {dragAndDropTaks} = columnSlice.actions;
 
 export const columnReducer = columnSlice.reducer;

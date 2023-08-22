@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createTask, getTasks, updateTask, deleteTask, filterTasks } from "./operations";
+import { createTask, getTasks, updateTask, deleteTask, filterTasks, dragTasks } from "./operations";
 
 const initialState = {
     loading: false,
@@ -48,6 +48,13 @@ const taskSlice = createSlice({
         [filterTasks.fulfilled](state, action){
             state.loading = false;
             state.tasks = action.payload;
+        },
+        [dragTasks.pending](state, action){
+            state.loading = true;
+        },
+        [dragTasks.fulfilled](state, action){
+            console.log(action.payload);
+            state.loading = false;
         }
     }
 })
