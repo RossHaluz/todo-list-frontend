@@ -41,8 +41,8 @@ const Screens = ({board}) => {
     const [draggedItem] = sourceColumn.splice(source.index, 1);
 
     // Insert the item into the destination column
-    if(source.droppableId === destination.draggedItem){
-      destinationColumn.splice(destination.index, 0, draggedItem);
+    if(sourceColumnIndex === destinationColumnIndex){
+      sourceColumn.splice(destination.index, 0, draggedItem);
     }else{
       destinationColumn.splice(destination.index, 0, draggedItem);
     }
@@ -54,7 +54,7 @@ const Screens = ({board}) => {
         tasks: sourceColumn,
       };
   
-      if(destination.droppableId !== source.droppableId || source.droppableId === destination.draggedItem){
+      if(destination.droppableId !== source.droppableId){
       updatedColumns[destinationColumnIndex] = {
         ...updatedColumns[destinationColumnIndex],
         tasks: destinationColumn,

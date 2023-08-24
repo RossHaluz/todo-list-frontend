@@ -19,7 +19,7 @@ const TaskList = ({id}) => {
 
   return <Droppable droppableId={id} key={id}>
     {(provided) => (
- <Tasks className={`flex flex-col gap-[8px] h-[45vh] lg:h-[50vh] overflow-y-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#E8E8E8] scrollbar-thumb-[#161616]/[.10]'} ${theme === 'dark' && ' scrollbar-track-[#FFFFFF] scrollbar-thumb-[#121212]'}`} {...provided.droppableProps} ref={provided.innerRef}>
+ <Tasks className={`flex flex-col gap-[8px] h-[45vh] lg:h-[50vh] overflow-y-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#E8E8E8] scrollbar-thumb-[#161616]/[.10]'} ${theme === 'dark' && ' scrollbar-track-[#ffffff]/[.50] scrollbar-thumb-[#121212]'}`} {...provided.droppableProps} ref={provided.innerRef}>
  {!!tasks && tasks?.filter(item => item.column === id).map((item, index) => <TaskListItem key={item._id} item={item} index={index}/>)}
  {provided.placeholder}
 </Tasks>
