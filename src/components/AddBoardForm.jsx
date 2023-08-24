@@ -16,8 +16,10 @@ const validateSchema = Yup.object({
 const AddBoardForm = () => {
     const dispatch = useDispatch()
     const [icon, setIcon] = useState(icons + '#board-icon1');
-    const [background, setBackground] = useState('');
+    const [background, setBackground] = useState('empty');
     const {theme} = useSelector(state => state.auth);
+
+    console.log(background);
 
     const BOARD_ICONS = [
         'board-icon1',
@@ -37,6 +39,7 @@ const AddBoardForm = () => {
       }
     
       const onSubmit = (value, {resetForm}) => {
+        console.log(value);
         dispatch(createNewBoard(value))
         resetForm();
       }
@@ -70,10 +73,10 @@ const AddBoardForm = () => {
 <div className='flex flex-col gap-[14px] mb-[40px]'>
 <h3 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'}`}>Background</h3>
 <ul className='flex items-center gap-[4px] flex-wrap'>
-  {bgc?.slice(1).map(({id, alt, URL}) => {
-  return <li key={id} className={`border-2 ${values.background === URL.icon ? `${theme === 'dark' && 'border-[#fff] '} rounded-[8px]` : 'border-none'} ${theme === 'light' && 'border-[#BEDBB0]'} ${theme === 'violet' && 'border-[#5255BC]'}`}>
+  {bgc?.slice(1).map(({id, alt, URL, bgname}) => {
+  return <li key={id} className={`border-2 ${values.background === bgname? `${theme === 'dark' && 'border-[#fff] '} rounded-[8px]` : 'border-none'} ${theme === 'light' && 'border-[#BEDBB0]'} ${theme === 'violet' && 'border-[#5255BC]'}`}>
     <label className='flex cursor-pointer'>
-      <Field type="radio" name="background" onClick={e => setBackground(URL.icon)} value={URL.icon} className="appearance-none"/>
+      <Field type="radio" name="background" onClick={e => setBackground(bgname)} value={bgname} className="appearance-none"/>
     <img src={URL.icon} alt={alt} width="28" height="28" className="w-[28px] h-[28px]"/>
     </label>
     </li>

@@ -1,8 +1,10 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+// http://localhost:8888
+// https://todolist-nqf3.onrender.com
 
-axios.defaults.baseURL = 'http://localhost:8888'
+axios.defaults.baseURL = 'https://todolist-nqf3.onrender.com'
 
 export const getAllBoards = createAsyncThunk('api/getAllBoards', async(__, {rejectWithValue}) => {
     try {

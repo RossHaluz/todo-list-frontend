@@ -47,7 +47,7 @@ const boardSlice = createSlice({
             state.loading = true;
         },
         [updateBoard.fulfilled](state, action){
-            console.log(action.payload);
+            state.board = action.payload;
             state.loading = false;
         },
         [updateBoard.pending](state, action){

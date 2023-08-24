@@ -67,11 +67,11 @@ const UpdateBoardForm = ({title, background, icon, id}) => {
 <div className='flex flex-col gap-[14px] mb-[40px]'>
 <h3 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'}`}>Background</h3>
 <ul className='flex items-center gap-[4px] flex-wrap'>
-  {bgc?.slice(1).map(({id, alt, URL}) => {
+  {bgc?.slice(1).map(({id, alt, URL, bgname}) => {
     console.log(values.background === URL.icon);
-  return <li key={id} className={`border-2 ${values.background === URL.icon ? `${theme === 'dark' && 'border-[#fff] '} rounded-[8px]` : 'border-none'} ${theme === 'light' && 'border-[#BEDBB0]'} ${theme === 'violet' && 'border-[#5255BC]'}`}>
+  return <li key={id} className={`border-2 ${values.background === bgname ? `${theme === 'dark' && 'border-[#fff] '} rounded-[8px]` : 'border-none'} ${theme === 'light' && 'border-[#BEDBB0]'} ${theme === 'violet' && 'border-[#5255BC]'}`}>
     <label className='flex cursor-pointer'>
-      <Field type="radio" name="background" value={URL.icon} className="appearance-none"/>
+      <Field type="radio" name="background" value={bgname} className="appearance-none"/>
     <img src={URL.icon} alt={alt} />
     </label>
     </li>

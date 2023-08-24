@@ -11,7 +11,7 @@ const columnSlice = createSlice({
     initialState,
     reducers:{
         dragAndDropTaks(state, action) {
-            console.log(action.payload);
+            console.log(action.payload.updatedColumns);
             state.columns = action.payload.updatedColumns;
         }
     },

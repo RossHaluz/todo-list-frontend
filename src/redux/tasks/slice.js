@@ -15,14 +15,19 @@ const taskSlice = createSlice({
     reducers: {},
     extraReducers: {
         [dragAndDropTaks](state, action){
+            console.log(action.payload);
             const {columnId, taskId} = action.payload;
+            console.log(columnId);
+            console.log(taskId);
             const findIndex = state.tasks.findIndex(item => item._id === taskId);
+            console.log(findIndex);
             state.tasks[findIndex].column =  columnId;
         },
         [createTask.pending](state, action){
             state.loading = true
         },
         [createTask.fulfilled](state, action){
+            console.log(action.payload);
             state.loading = false;
             state.tasks.push(action.payload)
         }, 

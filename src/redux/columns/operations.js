@@ -2,7 +2,10 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
-axios.defaults.baseURL = 'http://localhost:8888'
+// http://localhost:8888
+// https://todolist-nqf3.onrender.com
+
+axios.defaults.baseURL = 'https://todolist-nqf3.onrender.com'
 
 export const createColumn = createAsyncThunk('api/createColumn', async (params, {rejectWithValue}) =>{
 const {boardName, title} = params;
