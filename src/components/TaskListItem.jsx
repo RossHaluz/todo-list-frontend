@@ -49,7 +49,7 @@ const getYear = new Date(deadline).getFullYear();
        >
        <div className="flex flex-col gap-[8px]">
        <h2 className={`${theme === 'dark' ? 'text-[#fff]' : 'text-[#161616]'} font-semibold tracking-[-0.28px]`}>{title}</h2>
-       <p className={`text-[12px] ${theme === 'dark' ? 'text-[#ffffff]/[.50]' : 'text-[#161616]/[.70]'} tracking-[-0.24px] leading-[16px]`}>{desc}</p>
+       <p className={`text-[12px] ${theme === 'dark' ? 'text-[#ffffff]/[.50]' : 'text-[#161616]/[.70]'} tracking-[-0.24px] leading-[16px] line-clamp-3`}>{desc}</p>
        </div>
        <div className={`w-full h-[1px] ${theme === 'dark' ? 'bg-[#ffffff]/[.10]' : 'bg-[#161616]/[.10]'}`}></div>
    
