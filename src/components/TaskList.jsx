@@ -16,7 +16,7 @@ const TaskList = ({id}) => {
 
   return <Droppable droppableId={id} key={id}>
     {(provided) => (
- <ul className="flex flex-col gap-[8px] h-[53vh] lg:h-[57vh] overflow-y-auto" {...provided.droppableProps} ref={provided.innerRef}>
+ <ul className="flex flex-col gap-[8px] h-[50vh] lg:h-[57vh] overflow-y-auto" {...provided.droppableProps} ref={provided.innerRef}>
  {!!tasks && tasks?.filter(item => item.column === id).map((item, index) => <TaskListItem key={item._id} item={item} index={index}/>)}
  {provided.placeholder}
 </ul>
