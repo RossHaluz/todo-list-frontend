@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/todo-list-frontend/static/css/main.64772546.css",
-    "main.js": "/todo-list-frontend/static/js/main.5f4788a7.js",
-    "static/js/507.7dc4ef6b.chunk.js": "/todo-list-frontend/static/js/507.7dc4ef6b.chunk.js",
+    "main.js": "/todo-list-frontend/static/js/main.ef174124.js",
+    "static/js/507.57c68262.chunk.js": "/todo-list-frontend/static/js/507.57c68262.chunk.js",
     "static/media/auth-desc@2x.png": "/todo-list-frontend/static/media/auth-desc@2x.32cb768db3fa51e0e051.png",
     "static/media/auth-mb@2x.png": "/todo-list-frontend/static/media/auth-mb@2x.8b5ce7fc07b16b11e361.png",
     "static/media/auth-desc@1x.png": "/todo-list-frontend/static/media/auth-desc@1x.7a6b72be737b8680b869.png",
@@ -16,11 +16,11 @@
     "static/media/delate.svg": "/todo-list-frontend/static/media/delate.50e4e67d5b41d0d42ddd7862efa14db9.svg",
     "static/media/logout.svg": "/todo-list-frontend/static/media/logout.b7c487b49848888de503993c57404621.svg",
     "main.64772546.css.map": "/todo-list-frontend/static/css/main.64772546.css.map",
-    "main.5f4788a7.js.map": "/todo-list-frontend/static/js/main.5f4788a7.js.map",
-    "507.7dc4ef6b.chunk.js.map": "/todo-list-frontend/static/js/507.7dc4ef6b.chunk.js.map"
+    "main.ef174124.js.map": "/todo-list-frontend/static/js/main.ef174124.js.map",
+    "507.57c68262.chunk.js.map": "/todo-list-frontend/static/js/507.57c68262.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.64772546.css",
-    "static/js/main.5f4788a7.js"
+    "static/js/main.ef174124.js"
   ]
 }
