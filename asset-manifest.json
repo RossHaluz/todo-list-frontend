@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/todo-list-frontend/static/css/main.96fcd879.css",
-    "main.js": "/todo-list-frontend/static/js/main.ea05f5b6.js",
+    "main.js": "/todo-list-frontend/static/js/main.d01cf809.js",
     "static/js/507.57c68262.chunk.js": "/todo-list-frontend/static/js/507.57c68262.chunk.js",
     "static/media/auth-desc@2x.png": "/todo-list-frontend/static/media/auth-desc@2x.32cb768db3fa51e0e051.png",
     "static/media/auth-mb@2x.png": "/todo-list-frontend/static/media/auth-mb@2x.8b5ce7fc07b16b11e361.png",
@@ -16,11 +16,11 @@
     "static/media/delate.svg": "/todo-list-frontend/static/media/delate.50e4e67d5b41d0d42ddd7862efa14db9.svg",
     "static/media/logout.svg": "/todo-list-frontend/static/media/logout.b7c487b49848888de503993c57404621.svg",
     "main.96fcd879.css.map": "/todo-list-frontend/static/css/main.96fcd879.css.map",
-    "main.ea05f5b6.js.map": "/todo-list-frontend/static/js/main.ea05f5b6.js.map",
+    "main.d01cf809.js.map": "/todo-list-frontend/static/js/main.d01cf809.js.map",
     "507.57c68262.chunk.js.map": "/todo-list-frontend/static/js/507.57c68262.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.96fcd879.css",
-    "static/js/main.ea05f5b6.js"
+    "static/js/main.d01cf809.js"
   ]
 }
