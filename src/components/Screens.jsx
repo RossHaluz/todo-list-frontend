@@ -94,7 +94,7 @@ const Screens = ({board}) => {
         <Filter/>
       </Modal>
     </div>
-    <WrrappColumns className={`flex gap-[34px] items-center w-full h-[100%] overflow-x-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#E8E8E8] scrollbar-thumb-[#161616]/[.10]'} ${theme === 'dark' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#121212]'}`}>
+    <WrrappColumns className={`flex gap-[34px] items-center w-full h-[100%] overflow-x-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#FFF] scrollbar-thumb-[#E8E8E8]'} ${theme === 'dark' && 'scrollbar-track-[#161616] scrollbar-thumb-[#ffffff]/[.10]'}`}>
       <div className={`flex ${columns?.length > 0 ? 'gap-[34px]' : 'gap-[0px]'}`}>
       <DragDropContext onDragEnd={onDragEnd}>
       <Columns/>
