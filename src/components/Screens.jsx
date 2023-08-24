@@ -90,8 +90,8 @@ const Screens = ({board}) => {
   <div className='px-[20px] md:px-[32px] lg:px-[24px] py-[14px] md:py-[26px] lg:py-[24px]'>
     <div className='flex flex-col'>
     <div className='flex justify-between'>
-      {board && <h1 className={`text-[18px] font-medium tracking-[-0.36px] ${theme === 'dark' ? "text-[#fff]" : "text-[#161616]"}`}>{board.title}</h1> }
-      <Modal styles={`text-[#161616]/[.80] ${theme === 'dark' && 'text-[#fff]'} flex items-center ml-auto gap-[8px]`} data={<><FiFilter/> Filters</>} textModal={'Filter'}>
+      {board && <div className={`${board?.background !== 'empty' && 'bg-[#161616]/[.50] px-3 py-2 rounded-[8px]'}`}> <h1 className={`text-[18px] font-medium tracking-[-0.36px] ${board?.background !== 'empty' && 'text-white'} ${theme === 'dark' ? "text-[#fff]" : "text-[#161616]"}`}>{board.title}</h1> </div>}
+      <Modal styles={`text-[#161616]/[.80] ${theme === 'dark' && 'text-[#fff]'} flex item-center gap-[8px] ml-auto ${board?.background !== 'empty' && 'bg-[#161616]/[.50] px-3 py-2 rounded-[8px] text-white'}`} data={<><FiFilter/> Filters</>} textModal={'Filter'}>
         <Filter/>
       </Modal>
     </div>

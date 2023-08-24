@@ -27,7 +27,6 @@ export const getBoard = createAsyncThunk('api/getBoard', async(boardName, {rejec
 export const createNewBoard = createAsyncThunk('api/createNewBoard', async(params, {rejectWithValue}) => {
     try {
         const {data} = await axios.post('/api/board/create-board', params);
-        console.log(data);
         return data;
     } catch (error) {
         return rejectWithValue(error.message)
