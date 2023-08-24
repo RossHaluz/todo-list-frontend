@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 
 const Columns = () => {
   const {boardName} = useParams()
-  const columns = useSelector(selectColumns)
+  const columns = useSelector(selectColumns);
 
   return <div className="flex flex-col">
-  {boardName && <ul className="flex mt-[39px] gap-[34px] overflow-x-auto">
+  {boardName && <ul className={`flex mt-[39px] gap-[34px] overflow-x-scroll`}>
     {columns?.length > 0 && columns?.map(item => {
       if(item) {
         const {title, _id: id} = item;

@@ -41,7 +41,7 @@ const getYear = new Date(deadline).getFullYear();
 
   return <Draggable draggableId={id} key={id} index={index}>
     {(provided) => (
-       <li className={`py-[14px] px-[24px] ${theme === 'dark' ? 'bg-[#121212]' : 'bg-[#fff]'} rounded-[8px] flex flex-col gap-[14px] border-l-4 border-${borderColor}`}
+       <li className={`py-[14px] px-[24px] ${theme === 'dark' ? 'bg-[#121212]' : 'bg-[#fff]'} mr-[8px] rounded-[8px] flex flex-col gap-[14px] border-l-4 border-${borderColor}`}
        priority={priority}
        ref={provided.innerRef}
        {...provided.draggableProps}

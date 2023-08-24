@@ -9,13 +9,15 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { dragTasks } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { dragAndDropTaks } from 'redux/columns/slice';
-import { BoardContainer } from './Screens.styled';
+import { BoardContainer, WrrappColumns } from './Screens.styled';
 import { bgc } from 'source/bgc';
+import { useParams } from 'react-router-dom';
 
 const Screens = ({board}) => {
   const {theme} = useSelector(state => state.auth);
   const columns = useSelector(selectColumns);
   const dispatch = useDispatch();
+  const params = Object.keys(useParams());
 
 
   const onDragEnd = result => {
@@ -37,9 +39,6 @@ const Screens = ({board}) => {
 
     // Remove the item from the source column
     const [draggedItem] = sourceColumn.splice(source.index, 1);
-
-    console.log(draggedItem);
-    console.log(sourceColumn);
 
     // Insert the item into the destination column
     if(source.droppableId === destination.draggedItem){
@@ -89,20 +88,20 @@ const Screens = ({board}) => {
   return  <BoardContainer className={`lg:flex flex-col w-full h-screen lg:w-[calc(100vw-260px)] lg:h-[calc(100vh-60px)] fixed top-[60px] right-0 ${theme === 'light' && 'bg-[#F6F6F7]'} ${theme === 'dark' && 'bg-[#1F1F1F]'} ${theme === 'violet' && 'bg-[#ECEDFD]'}`} backgroundImg={bgImg()}>
   <div className='px-[20px] md:px-[32px] lg:px-[24px] py-[14px] md:py-[26px] lg:py-[24px]'>
     <div className='flex flex-col'>
-    <div className='flex justify-between'>
-      {board && <div className={`${board?.background !== 'empty' && 'bg-[#161616]/[.50] px-3 py-2 rounded-[8px]'}`}> <h1 className={`text-[18px] font-medium tracking-[-0.36px] ${board?.background !== 'empty' && 'text-white'} ${theme === 'dark' ? "text-[#fff]" : "text-[#161616]"}`}>{board.title}</h1> </div>}
-      <Modal styles={`text-[#161616]/[.80] ${theme === 'dark' && 'text-[#fff]'} flex item-center gap-[8px] ml-auto ${board?.background !== 'empty' && 'bg-[#161616]/[.50] px-3 py-2 rounded-[8px] text-white'}`} data={<><FiFilter/> Filters</>} textModal={'Filter'}>
+    <div className='flex justify-between mt-2'>
+      {board && <h1 className={`text-[18px] font-medium tracking-[-0.36px] ${board?.background !== 'empty' && 'text-white'} ${theme === 'dark' ? "text-[#fff]" : "text-[#161616]"}`}>{board.title}</h1>}
+      <Modal styles={`text-[#161616]/[.80] ${theme === 'dark' && 'text-[#fff]'} flex item-center gap-[8px] ml-auto ${board?.background !== 'empty' && 'text-white'} ${params.length === 0 && 'hidden'}`} data={<><FiFilter/> Filters</>} textModal={'Filter'}>
         <Filter/>
       </Modal>
     </div>
-    <div className='flex gap-[34px] items-center w-full h-[100%] overflow-x-auto'>
+    <WrrappColumns className={`flex gap-[34px] items-center w-full h-[100%] overflow-x-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#E8E8E8] scrollbar-thumb-[#161616]/[.10]'} ${theme === 'dark' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#121212]'}`}>
       <div className={`flex ${columns?.length > 0 ? 'gap-[34px]' : 'gap-[0px]'}`}>
       <DragDropContext onDragEnd={onDragEnd}>
       <Columns/>
       </DragDropContext>
       {board && <AddColumn/>}
       </div>
-    </div>
+    </WrrappColumns>
     </div>
     {!board && <div className="w-[100%] min-h-screen flex justify-center items-center">
 <p className={`w-[335px] text-[12px] leading-[16px] tracking-[-0.24px] text-center ${theme === 'dark' ? 'text-[#ffffff7f]' : 'text-[#161616]/[.70]'}`}>

@@ -38,3 +38,17 @@ export const BoardContainer = styled.section`
     background-image: url(${props => props.backgroundImg?.URL.mobile});
   }
 `;
+
+export const WrrappColumns = styled.div`
+  &::-webkit-scrollbar {
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+  }
+`
