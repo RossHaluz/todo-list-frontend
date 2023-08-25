@@ -41,7 +41,7 @@ const toggle = () => {
   return (
     <div className="flex justify-center items-center m-auto flex-col gap-5 w-full h-[100vh] bg-gradient-to-t from-[#BEDBB0] from-92.19% to-[180deg, rgba(196, 196, 196, 0.00)] to-25%">
 
-<Link className="flex items-center gap-[14px] mt-[50px] justify-center" to='/'>
+<Link className="flex items-center gap-[14px] mt-[100px] justify-center" to='/'>
         <IconLogo />
         <h1 className="text-[28px] md:text-[40px] font-semibold tracking-[-1.12px]">
           Task Pro

@@ -75,7 +75,7 @@ const Sidebar = () => {
   }
 
   return <div className={`${isOpenMenu ? 'fixed top-0 left-0 w-full h-full bg-[#151515]/[.50] z-[9999]' : 'sm:hidden lg:flex'}`} onClick={closeMenuOnBackdrop}>
-  <div className={`w-[225px] md:w-[260px] z-[9999] ${isOpenMenu ? 'flex fixed top-0 left-0 overflow-y-auto' : "hidden"} lg:flex fixed h-screen ${theme === 'dark' && 'bg-[#121212]'} ${theme === 'light' && 'bg-[#fff]'} ${theme === 'violet' && 'bg-[#5255BC]'} text-white flex flex-col`} >
+  <div className={`w-[225px] md:w-[260px] z-[9999] overflow-y-auto ${isOpenMenu ? 'flex fixed top-0 left-0' : "hidden"} lg:flex fixed h-screen ${theme === 'dark' && 'bg-[#121212]'} ${theme === 'light' && 'bg-[#fff]'} ${theme === 'violet' && 'bg-[#5255BC]'} text-white flex flex-col`} >
     <div className="px-[14px] py-[18]">
       <Link to='/' className="flex items-center gap-[8px] py-[18px] px-[14px] mb-[16px]">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,7 @@ const Sidebar = () => {
       </div>
     </div>
 
-    <BoardsList className={`flex flex-col gap[4px] mb-[32px] max-h-[120px] overflow-y-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#E8E8E8] scrollbar-thumb-[#161616]/[.10]'} ${theme === 'dark' && ' scrollbar-track-[#FFFFFF] scrollbar-thumb-[#121212]'}`}>
+    <BoardsList className={`flex flex-col gap[4px] mb-[32px] min-h-[120px] overflow-y-auto scrollbar ${theme === 'violet' && 'scrollbar-track-[#FFFFFF] scrollbar-thumb-[#B8BCFD]'} ${theme === 'light' && ' scrollbar-track-[#E8E8E8] scrollbar-thumb-[#161616]/[.10]'} ${theme === 'dark' && ' scrollbar-track-[#FFFFFF] scrollbar-thumb-[#121212]'}`}>
       {boards?.map(item =>  {
         if(!item) {
           return null
